@@ -15,6 +15,6 @@ class Model_TransformGallery extends \Model_Table{
 		$this->addField('interval')->Caption('Time Interval')->defaultValue('2000')->hint('Set Time Interval In Mili-Second');
 		$this->hasMany('slideShows/TransformGalleryImages','gallery_id');
 
-		$this->add('dynamic_model/Controller_AutoCreator');
+		// $this->add('dynamic_model/Controller_AutoCreator');
 	}
 }

@@ -13,6 +13,6 @@ class Model_ThumbnailSliderImages extends \Model_Table {
 		$this->addField('order_no')->type('int');
 		$this->addField('description')->type('text');
 		
-		$this->add('dynamic_model/Controller_AutoCreator');
+		// $this->add('dynamic_model/Controller_AutoCreator');
 	}
 }
