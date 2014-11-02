@@ -19,6 +19,6 @@ class Model_WaterWheelGallery extends \Model_Table {
 		$this->addField('keyboard_Nav')->type('boolean');
 
 		$this->hasMany('slideShows/Model_WaterWheelImages','gallery_id');
-		$this->add('dynamic_model/Controller_AutoCreator');
+		// $this->add('dynamic_model/Controller_AutoCreator');
 	}
 }

@@ -12,7 +12,7 @@ class Model_WaterWheelImages extends \Model_Table {
 		// $this->addField('order_no')->type('int');
 		$this->addField('strat_item')->type('boolean');
 		$this->addField('is_publish')->type('boolean')->defaultValue(true);
-		$this->add('dynamic_model/Controller_AutoCreator');
+		// $this->add('dynamic_model/Controller_AutoCreator');
 	}
 
 	// function beforeSave($m){

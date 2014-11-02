@@ -12,7 +12,7 @@ class Model_AwesomeImages extends \Model_Table {
 		$this->addField('effects')->enum(array("sliceDownRight","sliceDownLeft","sliceUpRight","sliceUpLeft","sliceUpDown","sliceUpDownLeft","fold","fade","boxRandom","boxRain","boxRainReverse","boxRainGrow","boxRainGrowReverse"))->defaultValue('Please Select');
 		$this->addField('is_publish')->type('boolean')->defaultValue(true);
 		$this->addHook('beforeSave',$this);
-		$this->add('dynamic_model/Controller_AutoCreator');
+		// $this->add('dynamic_model/Controller_AutoCreator');
 	}
 
 	function beforeSave($m){

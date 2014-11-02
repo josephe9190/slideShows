@@ -11,6 +11,6 @@ class Model_TransformGalleryImages extends \Model_Table{
 
 		$this->addField('image')->display(array('form'=>'ElImage'));
 		$this->addField('name')->caption('Display Tittle');
-		$this->add('dynamic_model/Controller_AutoCreator');
+		// $this->add('dynamic_model/Controller_AutoCreator');
 	}
 }
