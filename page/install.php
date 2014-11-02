@@ -18,6 +18,21 @@ class page_slideShows_page_install extends page_componentBase_page_install {
 			file_put_contents($css_file, "$css_content_orig");			
 			$this->api->template->appendHTML('js_include','<link id="slideShows-thumbnail-customcss-link" type="text/css" href="'.$css_file.'" rel="stylesheet" />'."\n");
 		}
+
+		$model_array=array('Model_AwesomeGallery',
+							'Model_AwesomeImages',
+							'Model_ThumbnailSliderGallery',
+							'Model_ThumbnailSliderImages',
+							'Model_TransformGallery',
+							'Model_TransformGalleryImages',
+							'Model_WaterWheelGallery',
+							'Model_WaterWheelImages'
+						);
+		foreach ($model_array as  $md) {
+			$model=$this->add('slideShows/'.$md);
+			$model->add('dynamic_model/Controller_AutoCreator');
+			$model->tryLoadAny();
+		}
 		// Code to run after installation
 	}
 }
