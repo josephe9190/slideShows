@@ -10,7 +10,7 @@ class page_slideShows_page_owner_update extends page_componentBase_page_update {
 		// 
 		// Code To run before update
 		
-		$this->update($dynamic_model_update=true); // All modls will be dynamic executed in here
+		$this->update($dynamic_model_update=false); // All modls will be dynamic executed in here
 		$model_array=array('Model_AwesomeGallery',
 							'Model_AwesomeImages',
 							'Model_ThumbnailSliderGallery',
