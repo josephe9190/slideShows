@@ -9,18 +9,25 @@ class Model_AwesomeGallery extends \Model_Table {
 		$this->hasOne('Model_Epan','epan_id');
 		$this->addCondition('epan_id',$this->api->current_website->id);
 		
-		$this->addField('name')->mandatory(true)->Caption('Gallery Name');
-		$this->addField('pause_time')->defaultValue('3000');
-		$this->addField('on_hover')->type('boolean')->defaultValue(true)->Caption('Mouse Hover Stop Slide');
-		$this->addField('control_nav')->type('boolean')->defaultValue(true)->Caption('Slide Navbar');
-		$this->addField('image_paginator')->enum(array('position-topleft',
+		$f = $this->addField('name')->mandatory(true)->Caption('Gallery Name')->group('a~6');
+		$f->icon = "fa fa-film~red";
+		$f = $this->addField('is_publish')->type('boolean')->defaultValue(true)->group('a~2');
+		$f->icon = "fa fa-exclamation~blue"; 
+		$f = $this->addField('control_nav')->type('boolean')->defaultValue(true)->Caption('Slide Navbar')->group('a~2');
+		$f->icon = "fa fa-exclamation~blue"; 
+		$f = $this->addField('on_hover')->type('boolean')->defaultValue(true)->Caption('Mouse Hover Stop Slide')->group('a~2');
+		$f->icon = "fa fa-exclamation~blue"; 
+		$f = $this->addField('pause_time')->defaultValue('3000')->group('b~6');
+		$f->icon = "fa fa-spinner fa-spin~blue";
+		$f = $this->addField('image_paginator')->caption('Image Paginator Position')->enum(array('position-topleft',
 												 'position-topright',
 												 'position-topcenter',
 												 'position-bottomleft',
 												 'position-bottomright',
-												 'position-bottomcenter'))->defaultValue('Please Select');
-		$this->addField('folder_path')->display(array('form'=>'ElImage'));
-		$this->addField('is_publish')->type('boolean')->defaultValue(true);
+												 'position-bottomcenter'))->defaultValue('Please Select')->group('b~6');
+		$f->icon = "fa fa-ellipsis-h~blue"; 
+		$f = $this->addField('folder_path')->display(array('form'=>'ElImage'));
+		$f->icon = "fa fa-folder-o~blue"; 
 		$this->addHook('beforeSave',$this);
 		$this->addHook('afterSave',$this);
 		$this->addHook('beforeDelete',$this);

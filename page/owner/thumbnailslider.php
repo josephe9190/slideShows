@@ -9,9 +9,9 @@ class page_slideShows_page_owner_thumbnailslider extends page_slideShows_page_ow
 		
 		$crud=$this->add('CRUD');
 		$crud->setModel($thumb_model);
-
-		$crud->addRef('slideShows/Model_ThumbnailSliderImages',array('label'=>'Images'));
-
-
+		$crud->add('Controller_FormBeautifier');
+		$ref = $crud->addRef('slideShows/Model_ThumbnailSliderImages',array('label'=>'Images'));
+		if($ref)
+			$ref->add('Controller_FormBeautifier');
 	}
 }

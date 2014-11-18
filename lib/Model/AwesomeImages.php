@@ -6,11 +6,16 @@ class Model_AwesomeImages extends \Model_Table {
 		parent::init();
 
 		$this->hasOne('slideShows/AwesomeGallery','gallery_id');
-		$this->addField('image')->display(array('form'=>'ElImage'));
-		$this->addField('tag');
-		$this->addField('order_no')->type('int');
-		$this->addField('effects')->enum(array("sliceDownRight","sliceDownLeft","sliceUpRight","sliceUpLeft","sliceUpDown","sliceUpDownLeft","fold","fade","boxRandom","boxRain","boxRainReverse","boxRainGrow","boxRainGrowReverse"))->defaultValue('Please Select');
-		$this->addField('is_publish')->type('boolean')->defaultValue(true);
+		$f = $this->addField('image')->display(array('form'=>'ElImage'))->group('a~12~<i class="glyphicon glyphicon-picture"></i> Awesome Gallery Images')->mandatory(true);
+		$f->icon = "glyphicon glyphicon-picture~red";
+		$f = $this->addField('tag')->group('a~11~dl');
+		$f->icon = "fa fa-tag~blue";
+		$f = $this->addField('order_no')->type('int')->group('a~3~dl');
+		$f->icon = "fa fa-sort-amount-asc~blue";
+		$f = $this->addField('effects')->enum(array("sliceDownRight","sliceDownLeft","sliceUpRight","sliceUpLeft","sliceUpDown","sliceUpDownLeft","fold","fade","boxRandom","boxRain","boxRainReverse","boxRainGrow","boxRainGrowReverse"))->defaultValue('Please Select')->group('a~6~dl');
+		$f->icon = "fa fa-magic~blue";
+		$f = $this->addField('is_publish')->type('boolean')->defaultValue(true)->group('a~2~dl');
+		$f->icon = "fa fa-exclamation~blue";
 		$this->addHook('beforeSave',$this);
 		// $this->add('dynamic_model/Controller_AutoCreator');
 	}

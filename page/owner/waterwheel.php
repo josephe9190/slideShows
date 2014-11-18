@@ -9,8 +9,9 @@ class page_slideShows_page_owner_waterwheel extends page_slideShows_page_owner_m
 		
 		$crud=$this->add('CRUD');
 		$crud->setModel($gallery_model);
-
-		$crud->addRef('slideShows/Model_WaterWheelImages',array('label'=>'Images'));
-
+		$crud->add('Controller_FormBeautifier');
+		$ref = $crud->addRef('slideShows/Model_WaterWheelImages',array('label'=>'Images'));
+		if($ref)
+			$ref->add('Controller_FormBeautifier');
 	}
 }

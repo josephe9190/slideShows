@@ -9,14 +9,22 @@ class Model_ThumbnailSliderGallery extends \Model_Table {
 		$this->hasOne('Epan','epan_id');
 		$this->addCondition('epan_id',$this->api->current_website->id);
 
-		$this->addField('name')->Caption('Gallery Name')->mandatory(true);
-		$this->addField('direction')->enum(array('vertical','horizontal'))->defaultValue('horizontal');
-		$this->addField('scroll_intervarl')->defaultValue(2400);
-		$this->addField('scroll_duration')->defaultValue(1200);
-		$this->addField('on_hover')->type('boolean')->defaultValue(true)->Caption('Mouse Hover Stop Slide');
-		$this->addField('autoAdvance')->type('boolean')->defaultValue(true)->Caption('Auto Slider');
-		$this->addField('scroll_by_each_thumb')->type('boolean')->defaultValue(true);
-		$this->addField('is_publish')->type('boolean')->defaultValue(true);
+		$f = $this->addField('name')->Caption('Gallery Name')->mandatory(true)->group('a~6~<i class="fa fa-picture-o"></i> Thumbnail Slider Gallery Options');
+		$f->icon = "fa fa-film~red";	
+		$f = $this->addField('direction')->enum(array('vertical','horizontal'))->defaultValue('horizontal')->group('a~2');
+		$f->icon = "fa fa-road~blue";	
+		$f = $this->addField('scroll_intervarl')->defaultValue(2400)->group('a~2');
+		$f->icon = "fa fa-spinner~blue";	
+		$f = $this->addField('scroll_duration')->defaultValue(1200)->group('a~2');
+		$f->icon = "fa fa-spinner~blue";	
+		$f = $this->addField('on_hover')->type('boolean')->defaultValue(true)->Caption('Mouse Hover Stop Slide')->group('b~3');
+		$f->icon = "fa fa-exclamation~blue";	
+		$f = $this->addField('autoAdvance')->type('boolean')->defaultValue(true)->Caption('Auto Slider')->group('b~3');
+		$f->icon = "fa fa-exclamation~blue";	
+		$f = $this->addField('scroll_by_each_thumb')->type('boolean')->defaultValue(true)->group('b~3');
+		$f->icon = "fa fa-exclamation~blue";	
+		$f = $this->addField('is_publish')->type('boolean')->defaultValue(true)->group('b~3');
+		$f->icon = "fa fa-exclamation~blue";	
 
 		$this->hasMany('slideShows/Model_ThumbnailSliderImages','gallery_id');
 

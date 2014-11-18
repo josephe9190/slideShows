@@ -7,11 +7,15 @@ class Model_WaterWheelImages extends \Model_Table {
 		parent::init();
 		$this->hasOne('slideShows/Model_WaterWheelGallery','gallery_id');
 
-		$this->addField('image')->display(array('form'=>'ElImage'));
-		$this->addField('description')->type('text');
+		$f = $this->addField('image')->display(array('form'=>'ElImage'))->mandatory(true)->group('a~8~<i class="fa fa-picture-o"></i> Water Weel Images');
+		$f->icon = "fa fa-picture-o~red";
+		$f = $this->addField('start_item')->type('boolean')->group('a~2');
+		$f->icon = "fa fa-exclamation~blue"; 
+		$f = $this->addField('is_publish')->type('boolean')->defaultValue(true)->group('a~2');
+		$f->icon = "fa fa-exclamation~blue"; 
+		$f = $this->addField('description')->type('text')->group('a~11~dl');
+		$f->icon = "fa fa-pencil~blue"; 
 		// $this->addField('order_no')->type('int');
-		$this->addField('strat_item')->type('boolean');
-		$this->addField('is_publish')->type('boolean')->defaultValue(true);
 		// $this->add('dynamic_model/Controller_AutoCreator');
 	}
 
